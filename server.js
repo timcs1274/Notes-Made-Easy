@@ -67,6 +67,12 @@ function deleteNote(id, noteArr) {
     }
 }
 
+app.delete('api/notes/:id', (req, res) => {
+    deleteNote(req.params.id, notes);
+    res.json(true);
+});
 
-//add middleware for delete
 //add server function
+app.listen(PORT, () => {
+    console.log('Sucess!');
+});
