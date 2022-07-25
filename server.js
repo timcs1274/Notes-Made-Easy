@@ -12,6 +12,21 @@ app.use(express.json());
 app.use(express.static('public'));
 
 //adding middleware
+app.get('/api/notes', (req, res) => {
+    res.json(notes.slice(1));
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './Develop/public/index.html'));
+});
+
+app.get('/notes', (req, res) =>{
+    res.sendFile(path.join(__dirname, './Develop/public/notes.html'));
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './Develop/public/index.html'))
+})
 
 
 
@@ -31,7 +46,10 @@ function createNote(body, noteArr) {
     return createNote;
 }
 
-
+app.post('/api/notes', (req, res) => {
+    const newNote = createNote(req.body, notes);
+    res.json(newNote);
+});
 
 //function to delete note
 function deleteNote(id, noteArr) {
@@ -50,5 +68,5 @@ function deleteNote(id, noteArr) {
 }
 
 
-
+//add middleware for delete
 //add server function
