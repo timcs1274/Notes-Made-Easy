@@ -34,6 +34,20 @@ function createNote(body, noteArr) {
 
 
 //function to delete note
+function deleteNote(id, noteArr) {
+    for (let i = 0; i < noteArr.length; i++) {
+        let note = noteArr[i];
+
+        if (note.id == id) {
+            noteArr.splice(i, 1);
+            fs.writeFileSync(
+                path.join(__dirname, './Develop/db/db.json'),
+                JSON.stringify(noteArr, null, 2)
+            );
+            break;
+        }
+    }
+}
 
 
 
