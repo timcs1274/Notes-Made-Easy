@@ -43,6 +43,12 @@ function createNote(body, noteArr) {
     body.id = noteArr[0];
     noteArr[0]++;
 
+    noteArr.push(newNote);
+    fs.writeFileSync(
+        path.join(__dirname, './Develop/db/db.json'),
+        JSON.stringify(noteArr, null, 2)
+    );
+
     return createNote;
 }
 
