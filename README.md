@@ -6,9 +6,9 @@
 
 This application is perfect for all of your note-taking needs. By following the deployed [link here](https://notes-made-easy.herokuapp.com/) you're taken to a deployed version of this app. Here you can easily create and delete notes with titles. Here are some images of how it looks:
 
-[First page img](./public/assets/images/Note%20takerimg.png)
+![First page img](./public/assets/images/Note%20takerimg.png)
 
-[Note page img](./public/assets/images/NoteTakerNotes.png)
+![Note page img](./public/assets/images/NoteTakerNotes.png)
 
 
 ## Usage
