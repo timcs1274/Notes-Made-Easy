@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path')
 const express = require('express');
 const app = express();
-const notes = require('./Develop/db/db.json');
+const notes = require('./db/db.json');
 
 
 
@@ -17,16 +17,16 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './Develop/public/index.html'));
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 
-app.get('/notes', (req, res) =>{
-    res.sendFile(path.join(__dirname, './Develop/public/notes.html'));
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
 });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './Develop/public/index.html'))
-})
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+});
 
 
 
@@ -45,7 +45,7 @@ function createNote(body, noteArr) {
 
     noteArr.push(newNote);
     fs.writeFileSync(
-        path.join(__dirname, './Develop/db/db.json'),
+        path.join(__dirname, '/db/db.json'),
         JSON.stringify(noteArr, null, 2)
     );
 
@@ -61,19 +61,17 @@ app.post('/api/notes', (req, res) => {
 function deleteNote(id, noteArr) {
     for (let i = 0; i < noteArr.length; i++) {
         let note = noteArr[i];
-
         if (note.id == id) {
             noteArr.splice(i, 1);
-            fs.writeFileSync(
-                path.join(__dirname, './Develop/db/db.json'),
-                JSON.stringify(noteArr, null, 2)
+            fs.writeFile('./db/db.json',
+                JSON.stringify (noteArr, null, 2), (err) => err ? console.error(err) : console.log("You're amazing!")
             );
             break;
         }
     }
 }
 
-app.delete('api/notes/:id', (req, res) => {
+app.delete('/api/notes/:id', (req, res) => {
     deleteNote(req.params.id, notes);
     res.json(true);
 });

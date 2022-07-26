@@ -2,7 +2,9 @@
 
 ## Description
 
-**
+*Use this app to take all your notes!*
+
+This application 
 
 ## Table of Contents
 * [Installation](#installation)
@@ -10,13 +12,12 @@
 * [Learning Points](#Learning%20Points)
 * [License](#license)
 
-## Installation
-
-**
-
 ## Usage
 
-**
+Simply follow the deployed link below to begin utilizing the app! 
+
+
+[Deployed Link](https://notes-made-easy.herokuapp.com/)
 
 ## Learning Points
 
